@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leading AI · Builders & Leaders — Een LLO-Katalysator voor West-Brabant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Sohne:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #1a1a1f;
+    --ink-soft: #2a2a32;
+    --paper: #f5f1ea;
+    --paper-warm: #ebe4d6;
+    --paper-deep: #e0d6c2;
+    --accent: #c8412c;
+    --accent-deep: #8a2818;
+    --accent-soft: #e88f7a;
+    --gold: #c9a860;
+    --moss: #4a5d3f;
+    --slate: #5a6470;
+    --line: rgba(26, 26, 31, 0.12);
+    --line-strong: rgba(26, 26, 31, 0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  /* ============ Texture overlay ============ */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(200,65,44,0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(74,93,63,0.04) 0%, transparent 40%);
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  .wrap { position: relative; z-index: 2; }
+
+  /* ============ Top bar ============ */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .topbar .meta { color: var(--slate); }
+  .topbar .doc-id {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  /* ============ Hero ============ */
+  .hero {
+    padding: 4rem 3rem 5rem;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    margin-bottom: 2rem;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .hero h1 .amp {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-lead {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 36rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-lead strong {
+    background: linear-gradient(transparent 60%, rgba(201, 168, 96, 0.4) 60%);
+    font-weight: 500;
+  }
+
+  .hero-side {
+    border-left: 1px solid var(--line);
+    padding-left: 3rem;
+    padding-top: 1rem;
+  }
+
+  .hero-stat {
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+  }
+
+  .hero-stat-label {
+    font-size: 0.85rem;
+    color: var(--slate);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+    max-width: 22rem;
+  }
+
+  .hero-stat-label em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ============ Synergy section ============ */
+  .synergy {
+    padding: 5rem 3rem;
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .synergy::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,65,44,0.15), transparent 70%);
+    pointer-events: none;
+  }
+
+  .synergy-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label .num {
+    background: var(--accent);
+    color: var(--paper);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    font-size: 0.65rem;
+  }
+
+  .synergy h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+    max-width: 40rem;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .synergy h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .synergy-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .flow-step {
+    border-top: 1px solid rgba(245, 241, 234, 0.2);
+    padding-top: 1.5rem;
+    position: relative;
+  }
+
+  .flow-step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent-soft);
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+  }
+
+  .flow-step h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .flow-step p {
+    font-size: 0.9rem;
+    color: rgba(245, 241, 234, 0.7);
+    line-height: 1.55;
+  }
+
+  .flow-step .partners {
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  /* ============ Tab dashboard ============ */
+  .dashboard {
+    padding: 5rem 3rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .dashboard-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .dashboard-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3.5rem;
+    align-items: end;
+  }
+
+  .dashboard h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .dashboard h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .dashboard-intro {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--line-strong);
+    overflow-x: auto;
+  }
+
+  .tab {
+    background: none;
+    border: none;
+    padding: 1.5rem 2rem;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--slate);
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    flex: 1;
+    text-align: left;
+  }
+
+  .tab .tab-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--line-strong);
+    transition: color 0.3s ease;
+  }
+
+  .tab:hover {
+    color: var(--ink);
+  }
+
+  .tab:hover .tab-num {
+    color: var(--accent);
+  }
+
+  .tab.active {
+    color: var(--ink);
+  }
+
+  .tab.active .tab-num {
+    color: var(--accent);
+  }
+
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  .tab-content {
+    padding: 3.5rem 0 0;
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .panel-lead {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+  }
+
+  .panel-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .panel h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .panel h3 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .panel-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--accent);
+    margin-top: 2rem;
+  }
+
+  .value-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .value-item {
+    border-top: 1px solid var(--line);
+    padding: 1.5rem 0;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    transition: padding-left 0.3s ease;
+  }
+
+  .value-item:last-child { border-bottom: 1px solid var(--line); }
+
+  .value-item:hover {
+    padding-left: 0.5rem;
+  }
+
+  .value-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    padding-top: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  .value-content h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .value-content p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .value-content .tag {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--moss);
+    background: rgba(74, 93, 63, 0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ============ KPI strip ============ */
+  .kpis {
+    background: var(--paper-warm);
+    padding: 4rem 3rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .kpi-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .kpi {
+    border-top: 2px solid var(--ink);
+    padding-top: 1.5rem;
+  }
+
+  .kpi-num {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144;
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+  }
+
+  .kpi-num .unit {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--slate);
+    font-style: italic;
+  }
+
+  .kpi-label {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* ============ Closing ============ */
+  .closing {
+    padding: 6rem 3rem;
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -100px;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 168, 96, 0.08), transparent 70%);
+  }
+
+  .closing-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+
+  .closing h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .closing h2 strong {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  .closing p {
+    font-size: 1.1rem;
+    color: rgba(245, 241, 234, 0.75);
+    max-width: 36rem;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  .closing-meta {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 234, 0.5);
+    border-top: 1px solid rgba(245, 241, 234, 0.15);
+    padding-top: 2rem;
+  }
+
+  .closing-meta div { color: var(--accent-soft); }
+  .closing-meta div strong { color: var(--paper); font-weight: 500; }
+
+  /* ============ Footer ============ */
+  footer {
+    padding: 2rem 3rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 900px) {
+    .topbar { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .hero, .synergy, .dashboard, .kpis, .closing { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .hero-grid, .dashboard-header, .panel { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-side { border-left: none; border-top: 1px solid var(--line); padding-left: 0; padding-top: 2rem; }
+    .synergy-flow { grid-template-columns: 1fr 1fr; }
+    .kpi-inner { grid-template-columns: 1fr 1fr; }
+    .closing-meta { flex-direction: column; gap: 1rem; }
+    .panel-lead { position: static; }
+    .tab { padding: 1rem 1.25rem; font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ Top bar ============ -->
+  <div class="topbar">
+    <div class="doc-id">AVANS · ABE · ORM — INTERN STRATEGIEDOC</div>
+    <div class="meta">Janne Toonen · LLO-Katalysator Data &amp; AI · 2026</div>
+  </div>
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Pilot · 10-weekse leerlijn · West-Brabant</div>
+        <h1>Leading AI<br /><em>Builders</em> <span class="amp">&amp;</span> <em>Leaders</em></h1>
+        <p class="hero-lead">
+          Een Learning Community die <strong>initieel onderwijs en LLO structureel verbindt</strong>. Studenten ORM bouwen werkende AI-tools bij MKB-bedrijven; ondernemers professionaliseren on-the-job; experts scouten talent; Avans verstevigt haar rol als aanjager van regionale innovatie.
+        </p>
+      </div>
+      <div class="hero-side">
+        <div class="hero-stat">
+          <div class="hero-stat-num">5</div>
+          <div class="hero-stat-label">Doelgroepen die <em>elkaars rendement vergroten</em> binnen één traject — Studenten, MKB, Avans, Expertbedrijven en Strategische Partners.</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">1</div>
+          <div class="hero-stat-label">Geïntegreerd model dat de LLO-Katalysator-aanvraag <em>inhoudelijk valideert</em> via concrete praktijkcasuïstiek.</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">14</div>
+          <div class="hero-stat-label">MKB-vraagstukken per ronde — directe doorstroom van het centrale Data &amp; AI-event van Iggy &amp; Emile.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Synergy section ============ -->
+  <section class="synergy">
+    <div class="synergy-grid">
+      <div class="section-label"><span class="num">01</span> De synergie</div>
+      <h2>Van losse initiatieven naar één <em>Intake-to-Implementation</em> route binnen Avans.</h2>
+      <p style="max-width: 44rem; color: rgba(245,241,234,0.75); font-size: 1.05rem; line-height: 1.65;">
+        Het MKB vraagt niet om méér inspiratie — maar om concrete handvatten. Deze leerlijn vormt de ontbrekende schakel tussen het centrale LLO-event en duurzame implementatie. Eén keten, vijf belanghebbenden, gedeelde uitkomst.
+      </p>
+
+      <div class="synergy-flow">
+        <div class="flow-step">
+          <div class="flow-step-num">PHASE 01</div>
+          <h4>Diagnose</h4>
+          <p>Centraal AI-event Avans-breed: MKB brengt vraagstuk in via quickscan en procesmapping.</p>
+          <div class="partners">→ Iggy &amp; Emile · LLO-event</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">PHASE 02</div>
+          <h4>Matching</h4>
+          <p>Werving van 14 MKB-partijen die tegen vergoeding een vraagstuk inbrengen in de PL-leerlijn.</p>
+          <div class="partners">→ REWIN · Digitale Werkplaats · Brabant Coaches</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">PHASE 03</div>
+          <h4>Co-creatie</h4>
+          <p>Studententeams van 4 bouwen 10 weken lang werkende AI-tools — begeleid door experts en coaches.</p>
+          <div class="partners">→ ORM · CM.com · Flowminds · DataValue · LiveWall</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">PHASE 04</div>
+          <h4>Borging</h4>
+          <p>Resultaten voeden de LLO-aanvraag, microcredentials en het HALLO-project van Leon Kuijpers.</p>
+          <div class="partners">→ LLO-Katalysator · Lectoraat · HALLO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Tab dashboard ============ -->
+  <section class="dashboard">
+    <div class="dashboard-inner">
+      <div class="dashboard-header">
+        <div>
+          <div class="section-label" style="color: var(--accent);"><span class="num" style="background: var(--ink); color: var(--paper);">02</span> Meerwaarde per stakeholder</div>
+          <h2>Vijf perspectieven, <em>één ecosysteem</em>.</h2>
+        </div>
+        <p class="dashboard-intro">
+          Het succes van deze leerlijn staat of valt met de erkenning dat élke betrokken partij rendement haalt uit de samenwerking. Klik op een stakeholder om de specifieke meerwaarde, doelstellingen en bijdrage te zien — en hoe deze elkaar onderling versterken.
+        </p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-target="tab-avans" role="tab"><span class="tab-num">01 / AVANS</span>Voor Avans</button>
+        <button class="tab" data-target="tab-mkb" role="tab"><span class="tab-num">02 / MKB</span>Voor het MKB</button>
+        <button class="tab" data-target="tab-student" role="tab"><span class="tab-num">03 / STUDENT</span>Voor studenten</button>
+        <button class="tab" data-target="tab-expert" role="tab"><span class="tab-num">04 / EXPERT</span>Voor expertbedrijven</button>
+        <button class="tab" data-target="tab-partner" role="tab"><span class="tab-num">05 / PARTNERS</span>Strategische partners</button>
+      </div>
+
+      <!-- AVANS -->
+      <div class="tab-content active" id="tab-avans">
+        <div class="panel">
+          <div class="panel-lead">
+            <div class="panel-eyebrow">01 — Voor Avans (LLO-Katalysator)</div>
+            <h3>Een werkende <em>doorstroom</em> van initieel onderwijs naar Leven Lang Ontwikkelen.</h3>
+            <p style="color: var(--ink-soft); font-size: 1rem; line-height: 1.7; margin-top: 1.5rem;">
+              Deze leerlijn levert exact wat de LLO-Katalysator vraagt: vraaggestuurd onderwijs, kennisvalorisatie en een zichtbare brug tussen voltijd-studenten en de regionale beroepspraktijk. Het uithangbord voor ORM én de inhoudelijke validatie van de LLO-subsidieaanvraag.
+            </p>
+            <div class="panel-quote">
+              "Avans zendt niet, maar bouwt sámen met de regio aan een toekomstbestendige economie."
+            </div>
+          </div>
+          <div class="value-list">
+            <div class="value-item">
+              <div class="value-num">→ 01</div>
+              <div class="value-content">
+                <h4>Doorstroom &amp; ecosysteem</h4>
+                <p>Naadloze verbinding tussen voltijd-onderwijs en LLO-trajecten: dezelfde MKB-cases voeden zowel de studenten-leerlijn als de microcredentials voor professionals.</p>
+                <span class="tag">LLO-doelstelling</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 02</div>
+              <div class="value-content">
+                <h4>Vraaggestuurd aanbod</h4>
+                <p>Actuele AI-vraagstukken uit West-Brabant worden vertaald naar modules die op termijn als losse certificaten aan professionals aangeboden worden.</p>
+                <span class="tag">Co-creatie</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 03</div>
+              <div class="value-content">
+                <h4>Kennisvalorisatie</h4>
+                <p>Vakdocenten ontsluiten hun expertise via inhoudelijke workshops; het lectoraat krijgt directe toegang tot praktijkdata voor onderzoek.</p>
+                <span class="tag">Kennisbenutting</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 04</div>
+              <div class="value-content">
+                <h4>Inbedding bij hersenrijping (Jolles)</h4>
+                <p>Het 10-weekse blok met heldere mijlpalen sluit aan bij de planhorizon van de tweedejaars; structuur en coachgesprekken werken als 'externe prefrontale cortex'.</p>
+                <span class="tag">Didactische onderbouwing</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 05</div>
+              <div class="value-content">
+                <h4>Strategische zichtbaarheid</h4>
+                <p>Avans positioneert zich als dé onderwijsinstelling voor AI-implementatie in het regionale MKB — verstevigt de positie t.o.v. BUAS, Curio en de Rooie Pannen.</p>
+                <span class="tag">Profilering</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 06</div>
+              <div class="value-content">
+                <h4>Borging in HALLO-project</h4>
+                <p>De learnings uit deze pilot voeden de Katapult-aanvraag van Leon Kuijpers en de MKB-rondetafels die medio september starten.</p>
+                <span class="tag">Continuïteit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MKB -->
+      <div class="tab-content" id="tab-mkb">
+        <div class="panel">
+          <div class="panel-lead">
+            <div class="panel-eyebrow">02 — Voor het MKB</div>
+            <h3>Risicovrije innovatie met <em>meetbare</em> tijdwinst.</h3>
+            <p style="color: var(--ink-soft); font-size: 1rem; line-height: 1.7; margin-top: 1.5rem;">
+              West-Brabantse MKB'ers weten dat AI relevant is, maar weten niet wáár te beginnen. Deze leerlijn levert geen advies-rapport, maar een werkende oplossing — gebouwd binnen hun eigen processen en geborgd via een transfer-guide.
+            </p>
+            <div class="panel-quote">
+              "Tijd is geld. Studenten als 'Efficiency Engineers' die menselijk kapitaal vrijmaken van repetitief werk."
+            </div>
+          </div>
+          <div class="value-list">
+            <div class="value-item">
+              <div class="value-num">→ 01</div>
+              <div class="value-content">
+                <h4>Werkende AI-implementatie</h4>
+                <p>Eén live-toepassing aan het einde van het traject: workflow-automatisering, custom GPT-agent of data-dashboard — geen prototype, een productiewaardige tool.</p>
+                <span class="tag">Concreet resultaat</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 02</div>
+              <div class="value-content">
+                <h4>Up-skilling van personeel</h4>
+                <p>Medewerkers leren on-the-job met AI-ondersteunende tools werken — relevant voor laaggeletterden en duurzame inzetbaarheid op de arbeidsmarkt.</p>
+                <span class="tag">LLO voor MKB</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 03</div>
+              <div class="value-content">
+                <h4>Bewezen ROI</h4>
+                <p>Nulmeting in week 2, impactmeting in week 9: bespaarde uren en kwaliteitsverbetering in keiharde cijfers — niet hypothetisch maar gemeten.</p>
+                <span class="tag">Business case</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 04</div>
+              <div class="value-content">
+                <h4>Innovatiebudget op maat</h4>
+                <p>Mandaat van €500–€1.500 voor licenties en API-tokens, beheerd door studenten onder toezicht van de Product Owner — laagdrempelig experimenteren met nieuwe technologie.</p>
+                <span class="tag">Risicobeheer</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 05</div>
+              <div class="value-content">
+                <h4>Toegang tot expert-netwerk</h4>
+                <p>Inspiratiesessies door CM.com, Flowminds, DataValue en LiveWall — gratis kennisoverdracht én een doorgroeipad naar grotere implementaties na afloop.</p>
+                <span class="tag">Netwerk</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 06</div>
+              <div class="value-content">
+                <h4>Doorstroom Track 1 → Track 2</h4>
+                <p>Een vraagstuk kan doorlopen naar een tweede ronde — de ondernemer eindigt met twee werkende toepassingen voor één commitment.</p>
+                <span class="tag">Lange termijn</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDENT -->
+      <div class="tab-content" id="tab-student">
+        <div class="panel">
+          <div class="panel-lead">
+            <div class="panel-eyebrow">03 — Voor studenten ORM</div>
+            <h3>Van student naar <em>change agent</em> in 10 weken.</h3>
+            <p style="color: var(--ink-soft); font-size: 1rem; line-height: 1.7; margin-top: 1.5rem;">
+              Studenten leren niet ovér AI, ze bouwen ermee in een echte business-context. Persoonlijk Leiderschap is hier geen theoretisch concept maar een dagelijkse uitdaging: de ondernemer overtuigen, weerstand managen, verwachtingen bijstellen.
+            </p>
+            <div class="panel-quote">
+              "Hoe kan ik via AI dit bedrijfsproces sneller, slimmer en met minder menselijke uren uitvoeren?"
+            </div>
+          </div>
+          <div class="value-list">
+            <div class="value-item">
+              <div class="value-num">→ 01</div>
+              <div class="value-content">
+                <h4>EntreComp-skills aantoonbaar</h4>
+                <p>Bewijslast voor 'Spotting Opportunities', 'Mobilizing Resources', 'Coping with Ambiguity' en 'Valuing Ideas' — verankerd in de Pecha Kucha-eindpresentatie.</p>
+                <span class="tag">Competentieontwikkeling</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 02</div>
+              <div class="value-content">
+                <h4>Digitale vaardigheid</h4>
+                <p>Beheersing van moderne no-code/low-code AI-tooling (Make, Zapier, custom GPTs, Power BI) — direct inzetbaar in stage en eerste baan.</p>
+                <span class="tag">Beroepsvaardigheid</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 03</div>
+              <div class="value-content">
+                <h4>Professioneel netwerk</h4>
+                <p>Directe lijn met regionale MKB-ondernemers en specialistische AI-bureaus — talentscouting werkt twee kanten op.</p>
+                <span class="tag">Loopbaan</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 04</div>
+              <div class="value-content">
+                <h4>Structuur passend bij rijping</h4>
+                <p>10-weekse cyclus met wekelijkse mijlpalen, vaste werkmomenten en coachgesprekken — geen 'vrijheid-blijheid', wel begeleide zelfstandigheid (Jolles).</p>
+                <span class="tag">Pedagogische opzet</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 05</div>
+              <div class="value-content">
+                <h4>Showportfolio met impact</h4>
+                <p>Geen fictieve casus, maar een werkende tool plus impact-verantwoording — sterk discriminerend bij sollicitaties.</p>
+                <span class="tag">Portfolio</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 06</div>
+              <div class="value-content">
+                <h4>Driehoek van begeleiding</h4>
+                <p>Vakdocent (theorie), expert (praktijk), coach (persoonlijke ontwikkeling) — drie perspectieven op dezelfde groei, lage druk per partij.</p>
+                <span class="tag">Kwaliteitsborging</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="tab-content" id="tab-expert">
+        <div class="panel">
+          <div class="panel-lead">
+            <div class="panel-eyebrow">04 — Voor expertbedrijven</div>
+            <h3>Talent-scouting <em>én</em> markt­verbreding in één traject.</h3>
+            <p style="color: var(--ink-soft); font-size: 1rem; line-height: 1.7; margin-top: 1.5rem;">
+              Eén workshop van 2,5 uur levert toegang tot proactieve studenten met implementatie-ervaring én zichtbaarheid bij MKB-ondernemers die na afloop klaar zijn voor opschaling. Voor CM.com, Flowminds, Aigency, DataValue en LiveWall is dit een laagdrempelige investering met meerwaardige opbrengst.
+            </p>
+            <div class="panel-quote">
+              "Versterken van de positie van Breda als innovatieve regio door kennis te delen met de volgende generatie."
+            </div>
+          </div>
+          <div class="value-list">
+            <div class="value-item">
+              <div class="value-num">→ 01</div>
+              <div class="value-content">
+                <h4>Talent-pijplijn</h4>
+                <p>Direct contact met studenten die al hebben bewezen dat ze kunnen bouwen onder druk — ideale stagiairs en juniors.</p>
+                <span class="tag">Recruitment</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 02</div>
+              <div class="value-content">
+                <h4>Markt­verbreding bij MKB</h4>
+                <p>Zichtbaarheid bij 14 ondernemers per ronde die ná de leerlijn behoefte hebben aan grotere, schaalbare oplossingen.</p>
+                <span class="tag">Salesfunnel</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 03</div>
+              <div class="value-content">
+                <h4>Thought leadership</h4>
+                <p>Workshop binnen Avans-context positioneert het bedrijf als kennispartner — sterker dan een commerciële pitch.</p>
+                <span class="tag">Branding</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 04</div>
+              <div class="value-content">
+                <h4>Lage commitment, hoge zichtbaarheid</h4>
+                <p>Eén sessie van 2,5 uur — geen langlopende verplichting, wel volledige toegang tot het ecosysteem.</p>
+                <span class="tag">Efficiency</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 05</div>
+              <div class="value-content">
+                <h4>Bijdrage aan regio</h4>
+                <p>Versterken van Breda als innovatieve tech-hub — cruciaal voor het langetermijn-rendement van alle expertbedrijven.</p>
+                <span class="tag">Ecosysteem</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 06</div>
+              <div class="value-content">
+                <h4>Ingang tot Avans-onderwijs</h4>
+                <p>Doorstroom naar gastcolleges, afstudeerstages en research-projecten via lectoraat — als de chemie goed is.</p>
+                <span class="tag">Strategische relatie</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARTNERS -->
+      <div class="tab-content" id="tab-partner">
+        <div class="panel">
+          <div class="panel-lead">
+            <div class="panel-eyebrow">05 — Voor strategische partners</div>
+            <h3>Eén ingang voor het regionale <em>innovatie­vraagstuk</em>.</h3>
+            <p style="color: var(--ink-soft); font-size: 1rem; line-height: 1.7; margin-top: 1.5rem;">
+              Digitale Werkplaats, REWIN, Brabant Coaches, Ondernemersfonds Breda, Rabobank, Midpoint en Gemeente Breda werken nu vaak naast elkaar. Deze leerlijn is de gedeelde 'trechter' waar hun MKB-relaties terecht kunnen — gebundelde expertise, geen versnipperd aanbod.
+            </p>
+            <div class="panel-quote">
+              "De markt vraagt niet om meer inspiratie, maar om concrete handvatten en oplossingen."
+            </div>
+          </div>
+          <div class="value-list">
+            <div class="value-item">
+              <div class="value-num">→ 01</div>
+              <div class="value-content">
+                <h4>Bundeling van expertise</h4>
+                <p>Geen overlappend aanbod meer; partijen verwijzen MKB-relaties door naar één concrete leerlijn met bewezen aanpak.</p>
+                <span class="tag">Efficiency</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 02</div>
+              <div class="value-content">
+                <h4>Zichtbaar resultaat voor achterban</h4>
+                <p>Demo-day met de Gemeente Breda en alle stakeholders — 14 werkende AI-tools per ronde als bewijslast voor de eigen subsidiegevers en leden.</p>
+                <span class="tag">Verantwoording</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 03</div>
+              <div class="value-content">
+                <h4>Aansluiting op LLO-Katalysator</h4>
+                <p>Cofinanciering en cofaciliteren van professionaliseringstrajecten die voortvloeien uit de leerlijn — directe doorstroom van casuïstiek.</p>
+                <span class="tag">Subsidiekader</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 04</div>
+              <div class="value-content">
+                <h4>Aansluiting EDIH &amp; Brabant Coaches</h4>
+                <p>De PL-leerlijn complementeert de adviestrajecten van Brabant Coaches — studenten bouwen wat coaches signaleren als knelpunt.</p>
+                <span class="tag">Complementariteit</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 05</div>
+              <div class="value-content">
+                <h4>Schaalbaarheid via BUAS / Curio</h4>
+                <p>Het model is overdraagbaar naar andere onderwijsinstellingen waarmee Digitale Werkplaats samenwerkt — opschaling zonder nieuwe infrastructuur.</p>
+                <span class="tag">Schaalbaarheid</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">→ 06</div>
+              <div class="value-content">
+                <h4>Regionaal innovatie-vliegwiel</h4>
+                <p>West-Brabant positioneren als dé regio waar AI-implementatie in het MKB structureel werkt — met heldere meetbare uitkomsten.</p>
+                <span class="tag">Regio-impact</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KPI strip ============ -->
+  <section class="kpis">
+    <div class="kpi-inner">
+      <div class="kpi">
+        <div class="kpi-num">10<span class="unit">weken</span></div>
+        <div class="kpi-label">per leerlijn — passend binnen de planhorizon van het tweedejaarsbrein (Jolles).</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">56<span class="unit">studenten</span></div>
+        <div class="kpi-label">per track in 14 multidisciplinaire teams van vier — bewust gemixt op rijping.</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">€500<span class="unit">– 1.500</span></div>
+        <div class="kpi-label">innovatiebudget per MKB voor licenties en API-kosten — risicovrije experimenteerruimte.</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">2<span class="unit">tracks</span></div>
+        <div class="kpi-label">P1 en P2 — vraagstukken kunnen doorlopen, ondernemer eindigt met meerdere tools.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Closing ============ -->
+  <section class="closing">
+    <div class="closing-inner">
+      <div class="section-label" style="justify-content: center;"><span class="num">03</span> De vraag aan Avans</div>
+      <h2>Niet zenden, maar <strong>sámen bouwen</strong>.</h2>
+      <p>
+        Deze leerlijn is meer dan een onderwijsmodule — het is de operationele uitwerking van de LLO-Katalysator-ambitie. Met commitment vanuit ABE-directie, ORM-curriculum en het centrale Data &amp; AI-team kan de pilot in september 2026 (P1) operationeel zijn.
+      </p>
+      <div class="closing-meta">
+        <div><strong>P4 ontwikkeluren</strong><br />40 uur</div>
+        <div><strong>P1 start</strong><br />september 2026</div>
+        <div><strong>Doorstroom</strong><br />HALLO · LLO · Lectoraat</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Janne Toonen · ABE · ORM</div>
+    <div>Strategisch document v2 · 2026</div>
+  </footer>
+
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.target;
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(target).classList.add('active');
+      // smooth scroll into view of the panel content on mobile
+      if (window.innerWidth < 900) {
+        document.getElementById(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
